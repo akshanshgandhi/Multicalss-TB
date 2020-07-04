@@ -16,7 +16,7 @@ To run the code, the following python files need to be run in order:
 4. models.ipynb
 5. hyper_tun.ipynb
 
-Due to limitation of GPU run time on colab, the hypertuning was done manually for the multi class model as in 'hyper_par.xlsx' file.
+Due to limitation of GPU run time on colab, the hypertuning was done manually for the multi class model as in 'hyper_par.xlsx' file but the same can be done effectively using 'hyperas' library as coded in 'hyper_tun.ipynb'
 
 To check the performance of multi-class classifier over binary classifier, performance parameters of accuracy, precision and recall were evaluated on a seven layer deep network without hypertuning but with model structure similar to VGG16 architecture for both binary and multi-class cases.The network was trained on google colab's GPU.
 
