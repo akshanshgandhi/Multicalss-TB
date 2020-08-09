@@ -1,13 +1,15 @@
 # Multicalss-TB
 Integrating unsupervised and supervised learning for automated diagnosis of tuberculosis.
 
-This was part of my master's research project at Indian Institute of Technology(BHU), varanasi, in which I aimed to compare the performance of Multi-class classifier over binary classifier on MODS dataset of TB disease on a seven layer deep CNN.The binary data of positive and negative images was clustered into optimum number of classes using K-means clustering algorithm.Google colab's GPU was used to train the models for comparison and manual hypertuning of the multi-class model.
+This was part of my master's research project at Indian Institute of Technology(BHU), Varanasi, in which I aimed to compare the performance of the Multi-class classifier over binary classifier on grayscale pathology images of MODS culture of TB disease on a seven layer deep CNN. The following approch was the result of inablility of existing classifier to predict the class of a certain set of images repeatedly due to an unbalance in the dataset.The primary reason to use multi-class classifier was to seperate hard and easy diagnosable images from a human prospective and the seconadry expectaction was to reduce the overall computation time in training. 
+
+The binary data of positive and negative images was clustered into optimum number of classes using K-means clustering algorithm. Google colab's GPU was used to train the models for comparison and manual hypertuning of the multi-class model.
 
 The dataset can be downloaded from https://github.com/santiagolopezg/MODS_ConvNet.
 
 The dataset consists of 12510 grayscale images of resolution 224*224 of MODDS culture of Tuberculosis. Out of these, 4849 images were positive and 7661 were negative. The base model was a hypertuned VGG16 convolutional neural network architecture on binary classification with an accuracy of 92 +- 0.35%. Thus, there is a tendency of failure of detection on 8% of cases which puts a constraint on it's practical application.  
 
-The propsed model uses an integrated approch of unsupervised learning by clustering the positive and negative images into an optimal number of clusters by extracting the features out of images using weights of a pretrained VGG16 network on ImageNet dataset. Each cluster thus reprsenting a new class. The optimal number of clusters were evaluated using elbow diagram and K-means clustering algorithm.
+The propsed model uses an integrated approch of unsupervised learning by clustering the positive and negative images into an optimal number of clusters by extracting the features out of images using weights of a pretrained VGG16 network on ImageNet dataset. Each cluster thus reprsenting a new class. The optimal number of clusters were evaluated using elbow diagram, K-means clustering algorithm and variance measure. The dataset was then balanced further using image processing libraries like openCV by augmenting the images.
 
 To run the code, the following python files need to be run in order:
 1. data_seperation.py
@@ -37,4 +39,4 @@ Precision : 66.0 +- 1.87 %
 Recall    : 68.5 +- 2.2 %
 
 Scope of future work:
-Hypertuning multi-class classifier on a VGG16 network to test for performance over previously huper-tuned binary classifier.
+Hypertuning multi-class classifier on a VGG16 network to test for performance over previously hyper-tuned binary classifier.
